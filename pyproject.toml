@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vextrace"
+version = "1.0.0"
+description = "Turn raster images into clean, scalable SVG."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "devbnkdr" }]
+requires-python = ">=3.10"
+dependencies = ["vtracer>=0.6", "pillow>=10", "PyQt6>=6.5"]
+keywords = ["svg", "vector", "trace", "vectorize", "potrace", "vtracer", "qt"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+]
+
+[project.urls]
+Homepage = "https://github.com/devbnkdr/VexTrace"
+Issues = "https://github.com/devbnkdr/VexTrace/issues"
+
+[project.scripts]
+vextrace = "vextrace:main"
+
+[tool.setuptools]
+py-modules = ["vextrace"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E402"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
